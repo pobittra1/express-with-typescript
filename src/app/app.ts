@@ -29,6 +29,19 @@ app.get("/:userId/:subId", (req: Request, res: Response) => {
   res.send("Hello simran");
 });
 
+
+//handling error with try catch block
+app.get("/", async(req: Request, res: Response)=>{
+  try{
+    res.send(something);
+  }catch(err){
+    res.status(400).json({
+      success: false,
+      message: "failed to get data"
+    })
+  }
+})
+
 //for query implementation
 app.get("/", (req: Request, res: Response) => {
   console.log(req.query);
